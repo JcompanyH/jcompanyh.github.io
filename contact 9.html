@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact & Support - Formation Marketing Digital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f9fafb;
+      margin: 2rem;
+      color: #333;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #007bff;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+    button {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 1rem;
+      background-color: #28a745;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    p.success-message {
+      margin-top: 1rem;
+      color: #28a745;
+      font-weight: 700;
+      text-align: center;
+      display: none;
+    }
+
+    /* Mode sombre variables CSS */
+    :root {
+      --bg-color: #f9fafb;
+      --text-color: #333;
+    }
+    body.dark-mode {
+      background-color: #121212;
+      color: #eee;
+    }
+    body.dark-mode .container {
+      background-color: #1e1e1e;
+      box-shadow: 0 8px 20px rgba(255,255,255,0.1);
+    }
+    body.dark-mode input, body.dark-mode textarea {
+      background-color: #333;
+      border: 1px solid #555;
+      color: #eee;
+    }
+    body.dark-mode button {
+      background-color: #28a745;
+    }
+    body.dark-mode button:hover {
+      background-color: #218838;
+    }
+
+    /* Bouton toggle mode sombre */
+    #toggle-darkmode {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: #0a74da;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 2000;
+    }
+  </style>
+</head>
+<body>
+  <button id="toggle-darkmode" aria-pressed="false" aria-label="Activer le mode sombre">🌙</button>
+
+  <div class="container">
+    <h1>Contact & Support</h1>
+    <form id="contactForm">
+      <label for="name">Nom complet :</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Adresse email :</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Votre message :</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Envoyer</button>
+    </form>
+    <p class="success-message" id="successMessage">Merci pour votre message, nous vous répondrons rapidement !</p>
+  </div>
+
+  <script>
+    // Gestion envoi formulaire
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Ici ajouter intégration réelle (API, EmailJS, Formspree...)
+
+      successMessage.style.display = 'block';
+      form.reset();
+    });
+
+    // Toggle mode sombre
+    const toggleBtn = document.getElementById('toggle-darkmode');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      toggleBtn.setAttribute('aria-pressed', isDark);
+      toggleBtn.setAttribute('aria-label', isDark ? 'Désactiver le mode sombre' : 'Activer le mode sombre');
+      toggleBtn.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('darkModeEnabled', isDark);
+    });
+
+    // Appliquer préférence au chargement
+    if(localStorage.getItem('darkModeEnabled') === 'true') {
+      document.body.classList.add('dark-mode');
+      toggleBtn.setAttribute('aria-pressed', true);
+      toggleBtn.setAttribute('aria-label', 'Désactiver le mode sombre');
+      toggleBtn.textContent = '☀️';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Formations avancées pour devenir expert en marketing digital, investissement et création de business. Accédez à des cours abordables et puissants." />
+  <meta name="keywords" content="formations avancées, marketing digital, investissement, entrepreneuriat" />
+  <meta name="author" content="MarketPro2025" />
+  <title>Formations avancées - Accélérez votre réussite</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Variables couleurs pour mode clair */
+    :root {
+      --bg-color: #fff;
+      --text-color: #222;
+      --header-bg: #0a74da;
+      --nav-bg: #074a9c;
+      --btn-bg: #0a74da;
+      --btn-bg-hover: #074a9c;
+    }
+    /* Variables couleurs pour mode sombre */
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #eee;
+      --header-bg: #1e1e1e;
+      --nav-bg: #2a2a2a;
+      --btn-bg: #3333ff;
+      --btn-bg-hover: #0000cc;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    header {
+      background-color: var(--header-bg);
+      padding: 20px;
+      color: white;
+      transition: background-color 0.4s ease;
+    }
+
+    nav {
+      background-color: var(--nav-bg);
+      padding: 10px;
+      transition: background-color 0.4s ease;
+    }
+
+    nav ul.main-nav {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul.main-nav li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    nav ul.main-nav li a:hover,
+    nav ul.main-nav li a:focus {
+      text-decoration: underline;
+    }
+
+    .btn-secondary {
+      color: white;
+      background-color: var(--btn-bg);
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+      transition: background-color 0.4s ease;
+    }
+    .btn-secondary:hover,
+    .btn-secondary:focus {
+      background-color: var(--btn-bg-hover);
+      outline: none;
+    }
+
+    /* Toggle mode sombre bouton */
+    #toggle-darkmode {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: var(--btn-bg);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 2000;
+      transition: background-color 0.4s ease;
+    }
+    #toggle-darkmode:hover,
+    #toggle-darkmode:focus {
+      background-color: var(--btn-bg-hover);
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul class="main-nav" role="menubar" aria-label="Navigation principale">
+      <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
+      <li role="none"><a href="formations.html" role="menuitem">Formations</a></li>
+      <li role="none"><a href="devenir-riche.html" role="menuitem">Devenir riche</a></li>
+      <li role="none"><a href="formations-avancees.html" aria-current="page" role="menuitem">Formations avancées</a></li>
+    </ul>
+  </nav>
+  <h1>Formations avancées pour booster votre carrière</h1>
+
+  <!-- Bouton toggle mode sombre -->
+  <button 
+    id="toggle-darkmode" 
+    aria-pressed="false" 
+    aria-label="Activer le mode sombre"
+    type="button"
+  >🌙</button>
+</header>
+
+<main>
+  <section>
+    <h2>Pourquoi suivre une formation avancée ?</h2>
+    <p>Les formations de base posent les fondations. Les formations avancées vous donnent un avantage concurrentiel et vous permettent de passer au niveau supérieur. Maîtrisez les outils, automatisez votre activité, comprenez les algorithmes des réseaux sociaux, et développez votre influence.</p>
+    <img src="https://cdn.pixabay.com/photo/2021/04/09/07/58/training-6163659_960_720.jpg" alt="Illustration formation avancée" class="illustration" style="max-width: 100%; height: auto;" />
+  </section>
+
+  <section>
+    <h2>Nos formations avancées disponibles</h2>
+    <ul>
+      <li><a href="formation-startup.html">Lancer une startup de A à Z</a></li>
+      <li><a href="formation-copywriting.html">Maîtriser le copywriting</a></li>
+      <li><a href="formation-seo.html">SEO avancé pour dominer Google</a></li>
+      <li><a href="formation-investissement.html">Investissement immobilier stratégique</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contenus exclusifs</h2>
+    <p>Chaque formation contient :</p>
+    <ul>
+      <li>Des vidéos professionnelles</li>
+      <li>Des exercices pratiques</li>
+      <li>Des fiches PDF téléchargeables</li>
+      <li>Un accès à une communauté privée</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Extrait vidéo d'une formation</h2>
+    <div class="video-block" style="text-align:center;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/1YdBSts4P7Q" title="Formation marketing avancé" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <aside id="ad-side" style="background: #f5f5f5; padding: 1em; margin: 2em 0;">
+    <p><strong>💼 Accès complet à toutes nos formations pour 4,99€ seulement !</strong></p>
+    <a href="paiement.html" class="btn-secondary">Accéder maintenant</a>
+  </aside>
+</main>
+
+<footer>
+  <p>&copy; 2025 MarketPro2025 - <a href="index.html">Accueil</a></p>
+</footer>
+
+<script>
+  // Mode sombre toggle
+  const toggleBtn = document.getElementById('toggle-darkmode');
+  if (toggleBtn) {
+    // Appliquer la préférence stockée
+    if(localStorage.getItem('darkModeEnabled') === 'true') {
+      document.body.classList.add('dark-mode');
+      toggleBtn.setAttribute('aria-pressed', 'true');
+      toggleBtn.setAttribute('aria-label', 'Désactiver le mode sombre');
+      toggleBtn.textContent = '☀️';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      const isDark = document.body.classList.toggle('dark-mode');
+      toggleBtn.setAttribute('aria-pressed', isDark.toString());
+      toggleBtn.setAttribute('aria-label', isDark ? 'Désactiver le mode sombre' : 'Activer le mode sombre');
+      toggleBtn.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('darkModeEnabled', isDark);
+    });
+  }
+</script>
+
+</body>
+</html>

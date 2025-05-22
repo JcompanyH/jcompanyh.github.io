@@ -1,0 +1,62 @@
+/* Mode sombre – variables CSS */
+:root {
+  --bg-color: #fff;
+  --text-color: #222;
+  --header-bg: #0a74da;
+  --nav-bg: #074a9c;
+  --btn-bg: #0a74da;
+  --btn-bg-hover: #074a9c;
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #eee;
+  --header-bg: #1e1e1e;
+  --nav-bg: #2a2a2a;
+  --btn-bg: #3333ff;
+  --btn-bg-hover: #0000cc;
+}
+
+/* Reset box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Application des couleurs */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+header {
+  background-color: var(--header-bg);
+  transition: background-color 0.4s ease;
+}
+
+nav {
+  background-color: var(--nav-bg);
+  transition: background-color 0.4s ease;
+}
+
+/* Boutons animés */
+.btn-animated {
+  background-color: var(--btn-bg);
+  color: white;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-animated:hover,
+.btn-animated:focus {
+  background-color: var(--btn-bg-hover);
+  transform: scale(1.05);
+  outline: none;
+}

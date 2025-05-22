@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paiement Formation Copywriting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f7f7f7;
+      margin: 0; padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      max-width: 400px;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+    button {
+      background-color: #6772e5;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #5469d4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Paiement Formation Copywriting</h1>
+    <p>Prix : 3,99 €<br />Formation complète pour apprendre à écrire pour vendre.</p>
+    
+    <!--
+      Remplacez le lien de 'action' par celui fourni par Stripe dans votre dashboard.
+      Exemple : https://checkout.stripe.com/pay/cs_test_XXXXXXXXXXXXXXXXXXXX
+    -->
+    <form action="https://checkout.stripe.com/pay/YOUR_CHECKOUT_SESSION_ID" method="GET">
+      <button type="submit">Payer maintenant avec Stripe</button>
+    </form>
+
+    <p style="margin-top:1rem; font-size:0.85rem; color:#777;">
+      Paiement sécurisé par Stripe. Vous serez redirigé vers une page sécurisée.
+    </p>
+  </div>
+
+  <script>
+    function handleScrollFadeIn() {
+      document.querySelectorAll('img.fade-in-on-scroll').forEach(img => {
+        const rect = img.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100) {
+          img.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', handleScrollFadeIn);
+    window.addEventListener('load', handleScrollFadeIn);
+  </script>
+
+  <!--
+    Mode sombre (dark mode) toggle
+
+    HTML à mettre dans header/nav par exemple :
+  -->
+  <button id="toggle-darkmode" aria-pressed="false" aria-label="Activer le mode sombre" 
+    style="position:fixed; top:15px; right:15px; background:#0a74da; color:white; border:none; border-radius:50%; width:40px; height:40px; cursor:pointer; font-size:1.5rem; z-index:2000;">
+    🌙
+  </button>
+
+  <style>
+    /* Mode sombre - variables CSS */
+    :root {
+      --bg-color: #fff;
+      --text-color: #222;
+      --header-bg: #0a74da;
+      --nav-bg: #074a9c;
+      --btn-bg: #0a74da;
+      --btn-bg-hover: #074a9c;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #eee;
+      --header-bg: #1e1e1e;
+      --nav-bg: #2a2a2a;
+      --btn-bg: #3333ff;
+      --btn-bg-hover: #0000cc;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    header {
+      background-color: var(--header-bg);
+      transition: background-color 0.4s ease;
+    }
+
+    nav {
+      background-color: var(--nav-bg);
+      transition: background-color 0.4s ease;
+    }
+
+    .btn-animated {
+      background-color: var(--btn-bg);
+      transition: background-color 0.4s ease;
+    }
+
+    .btn-animated:hover, .btn-animated:focus {
+      background-color: var(--btn-bg-hover);
+    }
+  </style>
+
+  <script>
+    const toggleBtn = document.getElementById('toggle-darkmode');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      toggleBtn.setAttribute('aria-pressed', isDark);
+      toggleBtn.setAttribute('aria-label', isDark ? 'Désactiver le mode sombre' : 'Activer le mode sombre');
+      toggleBtn.textContent = isDark ? '☀️' : '🌙';
+      // Stocker la préférence
+      localStorage.setItem('darkModeEnabled', isDark);
+    });
+
+    // Au chargement, appliquer si stocké
+    if(localStorage.getItem('darkModeEnabled') === 'true') {
+      document.body.classList.add('dark-mode');
+      toggleBtn.setAttribute('aria-pressed', true);
+      toggleBtn.setAttribute('aria-label', 'Désactiver le mode sombre');
+      toggleBtn.textContent = '☀️';
+    }
+  </script>
+
+  <!--
+    Offres limitées / compte à rebours
+
+    HTML à placer où tu veux, par exemple en haut de la page d’accueil ou dans une section promo :
+  -->
+  <section id="limited-offer" role="region" aria-live="polite" aria-label="Offre limitée dans le temps" 
+    style="background:#ffdd57; color:#222; padding:20px; border-radius:12px; max-width:600px; margin:40px auto; text-align:center; font-family:'Montserrat', sans-serif; font-weight:700;">
+    Offre spéciale : -50% sur la formation Marketing Digital jusqu'à <span id="countdown-timer" aria-live="polite" style="color:#0a74da;"></span> !
+  </section>
+
+  <script>
+    function updateCountdown() {
+      const now = new Date();
+      const end = new Date();
+      end.setHours(23, 59, 59, 999); // fin de la journée
+      let diff = end - now;
+      if(diff < 0) {
+        document.getElementById('countdown-timer').textContent = "l'offre est terminée.";
+        clearInterval(timerInterval);
+        return;
+      }
+      const h = Math.floor(diff / 3600000);
+      diff %= 3600000;
+      const m = Math.floor(diff / 60000);
+      diff %= 60000;
+      const s = Math.floor(diff / 1000);
+      document.getElementById('countdown-timer').textContent = `${h}h ${m}m ${s}s`;
+    }
+    updateCountdown();
+    const timerInterval = setInterval(updateCountdown, 1000);
+  </script>
+
+  <!--
+    Newsletter & popup d’inscription
+    (Le code semble incomplet dans ta version, à compléter selon besoin)
+  -->
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<section id="limited-offer" role="region" aria-live="polite" aria-label="Offre limitée dans le temps" style="background:#ffdd57; color:#222; padding:20px; border-radius:12px; max-width:600px; margin:40px auto; text-align:center; font-family:'Montserrat', sans-serif; font-weight:700;">
+  Offre spéciale : -50% sur la formation Marketing Digital jusqu'à <span id="countdown-timer" aria-live="polite" style="color:#0a74da;"></span> !
+</section>
+<script>
+  function padZero(num) {
+    return num < 10 ? '0' + num : num;
+  }
+
+  function updateCountdown() {
+    const now = new Date();
+    const end = new Date();
+    end.setHours(23, 59, 59, 999); // fin de la journée
+    let diff = end - now;
+
+    if(diff < 0) {
+      document.getElementById('countdown-timer').textContent = "l'offre est terminée.";
+      clearInterval(timerInterval);
+      return;
+    }
+
+    const h = Math.floor(diff / 3600000);
+    diff %= 3600000;
+    const m = Math.floor(diff / 60000);
+    diff %= 60000;
+    const s = Math.floor(diff / 1000);
+
+    document.getElementById('countdown-timer').textContent = `${h}h ${padZero(m)}m ${padZero(s)}s`;
+  }
+
+  const timerInterval = setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>

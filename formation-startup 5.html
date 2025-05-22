@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Formation complète pour lancer votre startup en 2025 : étapes clés, erreurs à éviter, et conseils d’experts." />
+  <meta name="keywords" content="formation startup, création entreprise, business, marketing digital, entrepreneuriat" />
+  <meta name="author" content="MarketPro2025" />
+  <title>Formation Startup - Lancer votre entreprise en 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul class="main-nav" role="menubar" aria-label="Navigation principale">
+      <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
+      <li role="none"><a href="formations.html" role="menuitem">Formations</a></li>
+      <li role="none"><a href="devenir-riche.html" role="menuitem">Devenir riche</a></li>
+      <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
+    </ul>
+  </nav>
+  <h1>Formation : Lancer sa startup en 2025</h1>
+  <!-- Bouton Mode sombre -->
+  <button id="toggle-darkmode" aria-pressed="false" aria-label="Activer le mode sombre" 
+    style="position:fixed; top:15px; right:15px; background:#0a74da; color:white; border:none; border-radius:50%; width:40px; height:40px; cursor:pointer; font-size:1.5rem; z-index:2000;">🌙</button>
+</header>
+
+<main>
+  <article>
+    <section aria-labelledby="presentation-formation">
+      <h2 id="presentation-formation">Présentation de la formation</h2>
+      <p>Cette formation complète à 5€ vous guide pas à pas dans la création et le lancement de votre startup en 2025. Vous apprendrez à :</p>
+      <ul>
+        <li>Valider une idée innovante</li>
+        <li>Construire un business model efficace</li>
+        <li>Lever des fonds et gérer son financement</li>
+        <li>Mettre en place une stratégie marketing performante</li>
+        <li>Éviter les erreurs classiques qui plombent les jeunes startups</li>
+      </ul>
+      <img src="images/startup-team.jpg" alt="Équipe startup en réunion" class="illustration" />
+    </section>
+
+    <section aria-labelledby="video-intro">
+      <h2 id="video-intro">Vidéo d’introduction à la création de startup</h2>
+      <div class="video-block">
+        <iframe src="https://www.youtube.com/embed/rsK0o4n2B70" title="Introduction création startup" allowfullscreen></iframe>
+      </div>
+      <p>Cette vidéo présente les étapes clés pour bien démarrer.</p>
+    </section>
+
+    <section aria-labelledby="contenu-detaille">
+      <h2 id="contenu-detaille">Contenu détaillé de la formation</h2>
+      <p>La formation est découpée en modules complets :</p>
+      <ol>
+        <li>Étude de marché et validation de l’idée</li>
+        <li>Modèle économique et business plan</li>
+        <li>Développement produit et MVP</li>
+        <li>Stratégies de marketing digital</li>
+        <li>Gestion financière et levée de fonds</li>
+        <li>Techniques de vente et scaling</li>
+      </ol>
+      <p>Vous bénéficierez aussi d’exercices pratiques, d’études de cas réels, et d’un accès à un groupe privé d’entraide.</p>
+    </section>
+
+    <section aria-labelledby="acheter-formation">
+      <h2 id="acheter-formation">Acheter cette formation</h2>
+      <p>Pour seulement 5€, accédez à la formation complète et boostez votre projet entrepreneurial.</p>
+      <form action="achat_formation.php" method="POST" class="achat-formation-form">
+        <input type="hidden" name="formation" value="startup2025" />
+        <button type="submit" class="btn-primary" aria-label="Acheter la formation startup à 5 euros">Acheter pour 5€</button>
+      </form>
+    </section>
+  </article>
+
+  <aside id="ad-side" role="complementary" aria-label="Publicité marketing digital">
+    <p>📈 Découvrez nos formations marketing digital pour réussir en 2025.</p>
+    <a href="formations.html" class="btn-secondary" role="button">Voir toutes les formations</a>
+  </aside>
+</main>
+
+<footer>
+  <p>&copy; 2025 MarketPro2025 - <a href="index.html">Accueil</a></p>
+</footer>
+
+<script>
+  // Fade in images on scroll
+  function handleScrollFadeIn() {
+    document.querySelectorAll('img.fade-in-on-scroll').forEach(img => {
+      const rect = img.getBoundingClientRect();
+      if(rect.top < window.innerHeight - 100) {
+        img.classList.add('visible');
+      }
+    });
+  }
+  window.addEventListener('scroll', handleScrollFadeIn);
+  window.addEventListener('load', handleScrollFadeIn);
+
+  // Dark mode toggle
+  const toggleBtn = document.getElementById('toggle-darkmode');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    toggleBtn.setAttribute('aria-pressed', isDark);
+    toggleBtn.setAttribute('aria-label', isDark ? 'Désactiver le mode sombre' : 'Activer le mode sombre');
+    toggleBtn.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem('darkModeEnabled', isDark);
+  });
+  if(localStorage.getItem('darkModeEnabled') === 'true') {
+    document.body.classList.add('dark-mode');
+    toggleBtn.setAttribute('aria-pressed', true);
+    toggleBtn.setAttribute('aria-label', 'Désactiver le mode sombre');
+    toggleBtn.textContent = '☀️';
+  }
+</script>
+
+</body>
+</html>

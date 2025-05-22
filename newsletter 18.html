@@ -1,0 +1,40 @@
+<!-- Barre newsletter -->
+<section aria-label="Inscription newsletter" style="background:#0a74da; color:white; padding:18px 20px; text-align:center; font-family:'Roboto', sans-serif;">
+  <form id="newsletter-form" style="max-width:600px; margin:auto; display:flex; gap:12px; flex-wrap: wrap; justify-content:center; align-items:center;">
+    <label for="email-newsletter" style="font-weight:600; flex-basis: 100%; text-align: left;">
+      Inscrivez-vous à la newsletter :
+    </label>
+    <input 
+      type="email" 
+      id="email-newsletter" 
+      name="email-newsletter" 
+      placeholder="Votre email" 
+      required 
+      style="flex-grow:1; padding:10px; border-radius:6px; border:none; font-size:1rem;"
+      aria-required="true"
+    />
+    <button 
+      type="submit" 
+      class="btn-animated" 
+      style="padding: 12px 28px; font-weight:700; cursor:pointer;"
+    >
+      S'inscrire
+    </button>
+  </form>
+</section>
+
+<script>
+  document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const emailInput = this.querySelector('input[type="email"]');
+    const email = emailInput.value.trim();
+    if(!email) {
+      alert('Veuillez entrer une adresse email valide.');
+      emailInput.focus();
+      return;
+    }
+    // Ici, tu peux ajouter la logique d'envoi du formulaire (ex: API, fetch, etc.)
+    alert(`Merci pour votre inscription, ${email} !`);
+    this.reset();
+  });
+</script>

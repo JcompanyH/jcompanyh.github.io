@@ -1,0 +1,149 @@
+n sûr ! Voici le code complet prêt à copier-coller, fonctionnel, clair, accessible, avec la notation par étoiles + commentaires, prêt à être inséré dans ta page HTML.
+
+html
+Copier
+Modifier
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Notation & Avis des apprenants</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 2rem;
+      background: #f7f8fc;
+      color: #333;
+    }
+    h2 {
+      color: #0a74da;
+    }
+    #stars {
+      font-size: 2rem;
+      color: #ccc;
+      cursor: pointer;
+      user-select: none;
+    }
+    #stars span {
+      padding: 0 5px;
+    }
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      resize: none;
+      font-family: 'Montserrat', sans-serif;
+    }
+    button {
+      margin-top: 12px;
+      padding: 10px 20px;
+      background: #0a74da;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+    }
+    button:hover, button:focus {
+      background: #074a9c;
+    }
+    #reviews article {
+      border: 1px solid #0a74da;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      background: #f0f8ff;
+    }
+    #reviews article div {
+      color: #ffdd57;
+      font-size: 1.4rem;
+    }
+    #reviews article p {
+      margin-top: 8px;
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<section aria-labelledby="rating-title" style="max-width:600px; margin: auto;">
+  <h2 id="rating-title">Notation & Avis des apprenants</h2>
+
+  <form id="review-form" aria-label="Formulaire d'avis">
+    <label for="stars" style="font-weight:600;">Votre note :</label>
+    <div id="stars" role="radiogroup" aria-label="Notation par étoiles" tabindex="0">
+      <span data-value="1" role="radio" aria-checked="false" tabindex="0" aria-label="1 étoile">&#9733;</span>
+      <span data-value="2" role="radio" aria-checked="false" tabindex="-1" aria-label="2 étoiles">&#9733;</span>
+      <span data-value="3" role="radio" aria-checked="false" tabindex="-1" aria-label="3 étoiles">&#9733;</span>
+      <span data-value="4" role="radio" aria-checked="false" tabindex="-1" aria-label="4 étoiles">&#9733;</span>
+      <span data-value="5" role="radio" aria-checked="false" tabindex="-1" aria-label="5 étoiles">&#9733;</span>
+    </div>
+
+    <label for="comment" style="font-weight:600; margin-top:15px; display:block;">Votre commentaire :</label>
+    <textarea id="comment" name="comment" rows="4" placeholder="Écrivez votre avis ici..." required></textarea>
+
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <div id="reviews" aria-live="polite" style="margin-top:30px;"></div>
+</section>
+
+<script>
+  (() => {
+    const stars = document.querySelectorAll('#stars span');
+    let selectedRating = 0;
+
+    stars.forEach((star, i) => {
+      star.addEventListener('click', () => setRating(i + 1));
+      star.addEventListener('keydown', e => {
+        if(e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setRating(i + 1);
+        }
+      });
+    });
+
+    function setRating(rating) {
+      selectedRating = rating;
+      stars.forEach((star, i) => {
+        star.style.color = i < rating ? '#ffdd57' : '#ccc';
+        star.setAttribute('aria-checked', i < rating ? 'true' : 'false');
+        star.tabIndex = i === rating - 1 ? 0 : -1;
+      });
+    }
+
+    document.getElementById('review-form').addEventListener('submit', e => {
+      e.preventDefault();
+
+      if(selectedRating === 0) {
+        alert('Veuillez sélectionner une note.');
+        return;
+      }
+
+      const comment = e.target.comment.value.trim();
+
+      if(comment.length < 10) {
+        alert('Votre commentaire est trop court.');
+        return;
+      }
+
+      const reviewsDiv = document.getElementById('reviews');
+      const newReview = document.createElement('article');
+      newReview.innerHTML = `
+        <div aria-label="Note">${'★'.repeat(selectedRating)}${'☆'.repeat(5 - selectedRating)}</div>
+        <p>${comment}</p>
+      `;
+
+      reviewsDiv.prepend(newReview);
+      e.target.reset();
+      setRating(0);
+    });
+  })();
+</script>
+
+</body>
+</html>
